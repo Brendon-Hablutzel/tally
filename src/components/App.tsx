@@ -31,12 +31,25 @@ function App() {
 
   return (
     <div className="p-4 flex flex-col gap-2 items-center">
-      <div className="flex flex-col gap-2 text-center">
+      <div className="flex flex-col gap-3 text-center mb-4">
         <h1 className="text-5xl">Tally</h1>
-        <h3 className="text-lg">
+        <h3 className="text-xl">
           View insights for your NCSU dining plan based on your transaction
           history
         </h3>
+        <p className="text-xs">
+          Navigate to{" "}
+          <a
+            target="_blank"
+            href="https://get.cbord.com/ncsu/full/funds_home.php"
+            className="underline"
+          >
+            CBORD GET
+          </a>{" "}
+          and log in {">"} Click "View All Transaction History" (under the "My
+          Recent Transactions" header) {">"} Select the entire transaction
+          history table and copy it
+        </p>
       </div>
       <form
         onSubmit={handleSubmit}
