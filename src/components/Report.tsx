@@ -5,7 +5,7 @@ import {
   getAggregateUsageStats,
   getForecastStats,
   getPlaceStats,
-  getUsageStats,
+  getTrendStats,
 } from "../util/stats";
 import { canGetPlanFromAccount, getPlanFromAccount } from "../util/plans";
 import { addDays, daysBetween, formatDate, roundToHundredth } from "../util";
@@ -40,25 +40,18 @@ const Report = () => {
     [table, selectedAccount]
   );
 
-  const plan = useMemo(
-    // TODO: maybe handle case where no rows for the given plan are found
-    () => {
-      try {
-        return selectedAccount &&
-          table?.success &&
-          mostRecentDateForSelectedAccount
-          ? getPlanFromAccount(
-              selectedAccount,
-              mostRecentDateForSelectedAccount
-            )
-          : undefined;
-      } catch (e) {
-        console.error(e);
-        return undefined;
-      }
-    },
-    [selectedAccount, table, mostRecentDateForSelectedAccount]
-  );
+  const plan = useMemo(() => {
+    try {
+      return selectedAccount &&
+        table?.success &&
+        mostRecentDateForSelectedAccount
+        ? getPlanFromAccount(selectedAccount, mostRecentDateForSelectedAccount)
+        : undefined;
+    } catch (e) {
+      console.error(e);
+      return undefined;
+    }
+  }, [selectedAccount, table, mostRecentDateForSelectedAccount]);
 
   const accountTables = useMemo(
     () =>
@@ -84,10 +77,10 @@ const Report = () => {
     [accountTables, selectedAccount]
   );
 
-  const usageStats = useMemo(
+  const trendStats = useMemo(
     () =>
       selectedAccount in accountTables && plan && aggregateUsageStats
-        ? getUsageStats(
+        ? getTrendStats(
             accountTables[selectedAccount],
             plan,
             plan.totalAmount + aggregateUsageStats.importedAmount,
@@ -235,21 +228,20 @@ const Report = () => {
               </div>
             </div>
             <div className="border-[1px] border-black/20 rounded-lg p-3 flex flex-col gap-2">
-              {/* TODO: rename to 'trend'? */}
-              <h3 className="text-black/70 text-sm">usage</h3>
+              <h3 className="text-black/70 text-sm">trend</h3>
               <div className="flex justify-between gap-2 flex-1">
                 <div className="flex flex-col justify-between gap-2 flex-1">
                   <div className="h-[250px] w-full">
                     <UsageOverTimeLineChart
-                      data={usageStats?.usageOverTime ?? []}
+                      data={trendStats?.usageOverTime ?? []}
                     />
                   </div>
                 </div>
                 <div className="flex flex-col justify-around items-center p-5">
                   <div className="text-center">
                     <p className="font-medium text-lg">
-                      {usageStats
-                        ? roundToHundredth(usageStats.currentRate)
+                      {trendStats
+                        ? roundToHundredth(trendStats.currentRate)
                         : undefined}{" "}
                       / day
                     </p>
@@ -257,8 +249,8 @@ const Report = () => {
                   </div>
                   <div className="text-center">
                     <p className="font-medium text-lg">
-                      {usageStats
-                        ? roundToHundredth(usageStats.idealRate)
+                      {trendStats
+                        ? roundToHundredth(trendStats.idealRate)
                         : undefined}{" "}
                       / day
                     </p>

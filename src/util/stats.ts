@@ -162,7 +162,7 @@ const getUsageOverTime = (
   return usageOverTime;
 };
 
-export const getUsageStats = (
+export const getTrendStats = (
   rows: TableType,
   plan: PlanType,
   totalStartAmount: number,
