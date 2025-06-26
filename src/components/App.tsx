@@ -4,6 +4,7 @@ import {
   encodeParsedTable,
   parseInputTransactionHistoryTable,
 } from "../util/table";
+import exampleTable from "../assets/example.txt?raw";
 
 function App() {
   const [transactionHistory, setTransactionHistory] = useState("");
@@ -14,6 +15,7 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
 
     if (transactionHistory.length === 0) {
       setError("Error: must provide transaction history");
@@ -65,12 +67,26 @@ function App() {
           }}
         />
         {error ? <div className="text-red-500">{error}</div> : null}
-        <button
-          type="submit"
-          className="bg-gray-200 w-[100%] max-w-[200px] rounded-lg p-1 hover:cursor-pointer"
-        >
-          Generate Report
-        </button>
+        <div className="flex gap-3">
+          <button
+            // to prevent it from submitting the form
+            type="button"
+            onClick={() => setTransactionHistory(exampleTable)}
+            className={`bg-gray-200 max-w-[200px] rounded-lg py-1 px-2 hover:cursor-pointer transition ease-out duration-150 ${
+              transactionHistory.length > 0 ? "text-gray-500" : ""
+            }`}
+          >
+            Load Example
+          </button>
+          <button
+            type="submit"
+            className={`bg-gray-200 max-w-[200px] rounded-lg py-1 px-2 hover:cursor-pointer transition ease-in duration-150 ${
+              transactionHistory.length > 0 ? "bg-red-400 text-white" : ""
+            }`}
+          >
+            Generate Report
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -1,0 +1,208 @@
+Account Name	Date & Time	Activity Details	Amount (Currency / Meals)
+Spring 120 Block	05/07/25 03:13:42 PM	Workstation 9993	- $31.00
+Spring $500 Dining Dollars	05/07/25 03:00:10 PM	Workstation 9993	- $15.05
+Spring $500 Dining Dollars	05/02/25 01:29:21 PM	TalleyMrkt 6148	- $17.07
+Spring $500 Dining Dollars	05/02/25 01:20:41 PM	Tapingo PCJ-Talley	- $6.22
+Spring $500 Dining Dollars	05/02/25 01:07:18 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring $500 Dining D llars	05/01/25 12:38:08 PM	Tapingo PCJ-Talley	- $10.45
+Spring $500 Dining Dollars	05/01/25 12:36:57 PM	Tapingo Talley-Jasons Deli	- $8.54
+Spring $500 Dining Dollars	05/01/25 12:36:13 PM	Tapingo Talley-Los Lobos	- $6.64
+Spring $500 Dining Dollars	04/30/25 06:45:31 PM	Tapingo Talley-Los Lobos	- $16.13
+Spring $500 Dining Dollars	04/30/25 01:42:13 PM	Tapingo PCJ-Talley	- $8.79
+Spring 120 Block	04/30/25 11:08:52 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/29/25 06:49:06 PM	Tapingo PCJ-Talley	- $3.13
+Spring $500 Dining Dollars	04/29/25 06:48:06 PM	Tapingo Talley-Jasons Deli	- $13.09
+Spring $500 Dining Dollars	04/29/25 01:00:59 PM	Tapingo PCJ-Talley	- $5.22
+Spring 120 Block	04/29/25 11:20:16 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/28/25 06:02:29 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring $500 Dining Dollars	04/28/25 06:01:35 PM	Tapingo PCJ-Talley	- $3.09
+Spring 120 Block	04/28/25 01:07:32 PM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/24/25 06:45:44 PM	Tapingo PCJ-Talley	- $3.75
+Spring $500 Dining Dollars	04/24/25 06:44:33 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring $500 Dining Dollars	04/24/25 12:36:12 PM	Tapingo PCJ-Talley	- $3.56
+Spring 120 Block	04/24/25 12:15:55 PM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/23/25 07:56:49 PM	TalleyMkt 6211	- $5.69
+Spring 120 Block	04/23/25 07:24:49 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	04/23/25 03:28:01 PM	Tapingo Atrium-Brickyard	- $6.60
+Spring $500 Dining Dollars	04/23/25 11:33:14 AM	Tapingo Atrium-Brickyard	- $3.79
+Spring $500 Dining Dollars	04/23/25 09:37:40 AM	Tapingo-Hill of Beans	- $7.77
+Spring 120 Block	04/22/25 07:45:55 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	04/22/25 06:01:46 PM	Tapingo PCJ-Talley	- $3.09
+Spring 120 Block	04/22/25 11:14:23 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	04/21/25 06:36:10 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	04/21/25 12:52:55 PM	Tapingo PCJ-Talley	- $4.27
+Spring 120 Block	04/21/25 11:01:58 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/20/25 06:41:51 PM	Tapingo Talley-Los Lobos	- $3.60
+Spring $500 Dining Dollars	04/20/25 06:41:00 PM	Tapingo Talley-Jasons Deli	- $5.69
+Spring $500 Dining Dollars	04/20/25 06:39:20 PM	Tapingo PCJ-Talley	- $3.60
+Spring $500 Dining Dollars	04/19/25 11:07:20 AM	Tapingo PCJ-Talley	- $8.17
+Spring $500 Dining Dollars	04/18/25 07:30:28 PM	Tapingo PCJ-Talley	- $3.09
+Spring $500 Dining Dollars	04/18/25 07:13:40 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring $500 Dining Dollars	04/17/25 11:29:55 AM	Tapingo PCJ-Talley	- $4.27
+Spring 120 Block	04/17/25 11:02:36 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/16/25 04:29:14 PM	Tapingo PCJ- Parks Shop	- $3.60
+Spring 120 Block	04/16/25 11:01:27 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/15/25 05:25:03 PM	Tapingo Common Grounds	- $3.32
+Spring 120 Block	04/15/25 11:01:37 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/14/25 09:54:52 PM	Tapingo Common Grounds	- $3.60
+Spring 120 Block	04/14/25 06:16:45 PM	OneEarth 6154	- $1.00
+Spring 120 Block	04/14/25 11:01:42 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/14/25 07:54:50 AM	Tapingo PCJ-Talley	- $3.56
+Spring $500 Dining Dollars	04/13/25 08:35:54 PM	Tapingo PCJ-Talley	- $3.09
+Spring 120 Block	04/13/25 06:36:51 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	04/11/25 08:26:01 PM	Tapingo PCJ-Talley	- $3.13
+Spring $500 Dining Dollars	04/11/25 08:24:49 PM	Tapingo Talley-Los Lobos	- $10.44
+Spring $500 Dining Dollars	04/10/25 06:30:42 PM	Tapingo Oval-Newtons Grill	- $9.57
+Spring $500 Dining Dollars	04/10/25 01:51:00 PM	Tapingo Port City Java - EB II	- $4.27
+Spring 120 Block	04/10/25 11:05:10 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	04/09/25 06:11:16 PM	OneEarth 6154	- $1.00
+Spring 120 Block	04/09/25 11:00:47 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	04/08/25 05:34:04 PM	OneEarth 6154	- $1.00
+Spring 120 Block	04/08/25 11:02:00 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/07/25 07:57:45 PM	Tapingo Talley-Los Lobos	- $10.24
+Spring 120 Block	04/07/25 11:03:38 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/06/25 07:54:43 PM	Tapingo PCJ-Talley	- $3.60
+Spring $500 Dining Dollars	04/04/25 12:19:00 PM	Tapingo PCJ-Talley	- $4.27
+Spring $500 Dining Dollars	04/04/25 12:18:08 PM	Tapingo 1887	- $9.49
+Spring $500 Dining Dollars	04/03/25 06:12:44 PM	Tapingo PCJ-Talley	- $3.09
+Spring 120 Block	04/03/25 06:10:42 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	04/03/25 01:16:25 PM	Tapingo Port City Java - EB II	- $4.27
+Spring 120 Block	04/03/25 11:02:11 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	04/02/25 06:16:25 PM	OneEarth 6154	- $1.00
+Spring 120 Block	04/02/25 11:01:33 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	04/01/25 04:52:26 PM	Tapingo Common Grounds	- $3.32
+Spring 120 Block	04/01/25 11:04:35 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/31/25 07:38:03 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/31/25 11:01:53 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/27/25 11:03:11 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/26/25 06:22:02 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/26/25 11:02:02 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/25/25 11:03:19 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/24/25 05:58:09 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	03/24/25 02:06:14 PM	Tapingo Port City Java - EB II	- $4.99
+Spring 120 Block	03/24/25 11:02:12 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	03/21/25 07:32:31 PM	Tapingo PCJ-Talley	- $4.27
+Spring $500 Dining Dollars	03/21/25 07:31:48 PM	Tapingo Talley-Los Lobos	- $6.64
+Spring 120 Block	03/20/25 05:07:29 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/20/25 11:06:02 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/19/25 06:07:56 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/19/25 11:01:51 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	03/18/25 05:22:41 PM	Tapingo Oval-Newtons Grill	- $9.96
+Spring 120 Block	03/18/25 11:19:38 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/17/25 06:27:42 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/17/25 11:01:05 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	03/16/25 07:39:01 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring $500 Dining Dollars	03/16/25 12:48:25 PM	Tapingo Talley-Los Lobos	- $11.19
+Spring 120 Block	03/06/25 05:47:01 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/06/25 11:23:31 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	03/05/25 06:27:40 PM	Tapingo PCJ-Talley	- $4.27
+Spring $500 Dining Dollars	03/05/25 06:26:52 PM	Tapingo Talley-Los Lobos	- $6.64
+Spring 120 Block	03/05/25 11:07:14 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/04/25 11:12:15 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/03/25 07:45:49 PM	OneEarth 6154	- $1.00
+Spring 120 Block	03/03/25 11:07:29 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	03/02/25 05:40:39 PM	OneEarth 6154	- $1.00
+Spring 120 Block	02/27/25 05:08:27 PM	OneEarth 6154	- $1.00
+Spring 120 Block	02/27/25 11:19:04 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/26/25 06:07:21 PM	Tapingo Talley-Jasons Deli	- $7.59
+Spring 120 Block	02/26/25 11:02:46 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/25/25 08:30:26 PM	Tapingo Talley-Los Lobos	- $11.39
+Spring 120 Block	02/25/25 11:09:38 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	02/24/25 06:31:46 PM	OneEarth 6154	- $1.00
+Spring 120 Block	02/24/25 01:07:46 PM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/23/25 06:14:40 PM	Tapingo Talley-Jasons Deli	- $13.76
+Spring 120 Block	02/20/25 12:40:02 PM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/19/25 06:58:47 PM	Tapingo Talley-Tuffys Diner	- $9.96
+Spring $500 Dining Dollars	02/19/25 04:12:58 PM	Tapingo PCJ-Talley	- $5.74
+Spring 120 Block	02/19/25 12:07:13 PM	Clark Dining Hall-6051	- $1.00
+Spring $500 Dining Dollars	02/18/25 05:32:33 PM	Tapingo Common Grounds	- $3.60
+Spring 120 Block	02/18/25 11:09:36 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	02/17/25 11:08:30 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/14/25 08:41:27 PM	Tapingo Talley-Los Lobos	- $10.44
+Spring $500 Dining Dollars	02/13/25 06:47:23 PM	TalleyMkt6212	- $8.26
+Spring 120 Block	02/13/25 06:27:59 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	02/13/25 02:42:54 PM	Tapingo Port City Java - EB II	- $3.60
+Spring $500 Dining Dollars	02/06/25 07:53:16 PM	TalleyMkt6212	- $7.88
+Spring $500 Dining Dollars	02/06/25 05:51:56 PM	OVAL 6093	- $3.32
+Spring $500 Dining Dollars	02/06/25 05:19:10 PM	Tapingo Oval-Newtons Grill	- $10.52
+Spring 120 Block	02/06/25 11:01:03 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	02/05/25 06:20:48 PM	OneEarth 6154	- $1.00
+Spring 120 Block	02/05/25 11:02:26 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	02/04/25 07:55:20 PM	OneEarth 6154	- $1.00
+Spring 120 Block	02/04/25 11:02:36 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/03/25 10:06:54 PM	TalleyMkt 6211	- $3.13
+Spring 120 Block	02/03/25 07:28:15 PM	OneEarth 6154	- $1.00
+Spring $500 Dining Dollars	02/03/25 04:39:07 PM	Tapingo Common Grounds	- $10.42
+Spring 120 Block	02/03/25 11:01:02 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	02/02/25 08:45:11 PM	Tapingo PCJ-Talley	- $3.13
+Spring $500 Dining Dollars	02/02/25 08:43:56 PM	Tapingo PCJ-Talley	+ $3.09
+Spring $500 Dining Dollars	02/02/25 08:43:08 PM	Tapingo PCJ-Talley	- $3.09
+Spring $500 Dining Dollars	01/30/25 09:29:14 PM	TalleyMrkt 6106	- $7.59
+Spring 120 Block	01/30/25 05:08:53 PM	OneEarth 6154	- $1.00
+Spring 120 Block	01/30/25 11:01:33 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/29/25 06:35:25 PM	Tapingo PCJ-Talley	- $3.09
+Spring $500 Dining Dollars	01/29/25 06:09:08 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring 120 Block	01/29/25 11:02:20 AM	Case Micros Reg 6103	- $1.00
+Allcampus Account	01/29/25 10:29:05 AM	PaperCut Device	- $0.15
+Spring 120 Block	01/28/25 11:03:04 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/27/25 11:01:09 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/26/25 06:32:41 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring $500 Dining Dollars	01/25/25 11:44:41 AM	Tapingo PCJ-Talley	- $3.13
+Spring $500 Dining Dollars	01/23/25 05:46:37 PM	Tapingo PCJ-Talley	- $4.99
+Spring 120 Block	01/23/25 05:22:23 PM	OneEarth 6154	- $1.00
+Spring 120 Block	01/23/25 11:09:55 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/22/25 06:59:02 PM	University Towers MR3	- $1.00
+Spring 120 Block	01/22/25 11:27:21 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/21/25 11:02:24 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/20/25 06:41:29 PM	Fountain Dining Hall-6170	- $1.00
+Spring $500 Dining Dollars	01/20/25 12:40:14 PM	Tapingo Talley-Jasons Deli	- $7.59
+Spring $500 Dining Dollars	01/18/25 08:33:47 PM	Tapingo Talley-Los Lobos	- $9.47
+Spring $500 Dining Dollars	01/18/25 12:26:05 PM	Tapingo PCJ-Talley	- $4.99
+Spring $500 Dining Dollars	01/17/25 08:31:27 AM	TalleyMkt6212	- $8.54
+Spring 120 Block	01/16/25 05:12:25 PM	OneEarth 6154	- $1.00
+Spring 120 Block	01/16/25 11:03:23 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/15/25 06:13:34 PM	Tapingo Talley-Los Lobos	- $8.54
+Spring 120 Block	01/15/25 11:00:56 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/14/25 05:23:32 PM	Tapingo Talley-Los Lobos	- $10.44
+Spring 120 Block	01/14/25 11:02:07 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/13/25 11:03:37 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/12/25 05:43:49 PM	TalleyMkt 6211	- $5.69
+Spring $500 Dining Dollars	01/12/25 05:20:51 PM	Tapingo Talley-Los Lobos	- $10.44
+Spring $500 Dining Dollars	01/09/25 06:54:04 PM	TalleyMkt6212	- $8.26
+Spring $500 Dining Dollars	01/09/25 06:06:29 PM	Tapingo PCJ-Talley	- $4.27
+Spring 120 Block	01/09/25 05:58:29 PM	OneEarth 6154	- $1.00
+Spring 120 Block	01/09/25 10:59:38 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/08/25 06:49:40 PM	OneEarth 6154	- $1.00
+Spring 120 Block	01/08/25 11:03:49 AM	Case Micros Reg 6103	- $1.00
+Spring 120 Block	01/07/25 11:02:11 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/06/25 07:26:48 PM	Tapingo Talley-Jasons Deli	- $9.49
+Spring 120 Block	01/06/25 11:00:54 AM	Case Micros Reg 6103	- $1.00
+Spring $500 Dining Dollars	01/05/25 06:56:31 PM	Tapingo Talley-Los Lobos	- $6.64
+Spring 120 Block	01/05/25 12:27:03 PM	Clark Dining Hall-6051	- $1.00
+Spring $500 Dining Dollars	01/04/25 01:11:51 PM	Tapingo Talley-Los Lobos	- $9.49
+Fall $500 Dining Dollars	12/27/24 03:33:36 PM	PatronImport Location	- $113.00
+Spring $500 Dining Dollars	12/27/24 03:29:09 PM	PatronImport Location	+ $113.00
+Fall 120 Block	12/17/24 10:33:50 AM	PatronImport Location	- $7.00
+Fall $500 Dining Dollars	12/11/24 06:02:38 PM	Tapingo Talley-Los Lobos	- $9.49
+Fall 120 Block	12/11/24 11:11:46 AM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	12/09/24 11:07:25 AM	Case Micros Reg 6103	- $1.00
+Fall $500 Dining Dollars	12/08/24 07:26:14 PM	Tapingo Talley-Los Lobos	- $9.49
+Fall 120 Block	12/06/24 11:01:34 AM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	12/05/24 06:05:20 PM	OneEarth 6154	- $1.00
+Fall 120 Block	12/05/24 11:00:46 AM	Case Micros Reg 6103	- $1.00
+Fall $500 Dining Dollars	12/04/24 09:27:10 PM	Tapingo Talley-Tuffys Diner	- $9.96
+Fall $500 Dining Dollars	12/04/24 11:21:18 AM	Tapingo PCJ-Talley	- $5.79
+Fall 120 Block	12/04/24 11:01:29 AM	Case Micros Reg 6103	- $1.00
+Allcampus Account	12/03/24 06:49:02 PM	PaperCut Device	- $0.45
+Fall $500 Dining Dollars	12/03/24 06:48:09 PM	Tapingo Talley-Jasons Deli	- $7.59
+Fall 120 Block	12/03/24 01:05:57 PM	OneEarth 6154	- $1.00
+Fall 120 Block	12/02/24 11:35:49 AM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	12/01/24 07:06:04 PM	OneEarth 6154	- $1.00
+Fall 120 Block	11/26/24 09:19:57 AM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	11/25/24 11:29:21 AM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	11/24/24 07:12:21 PM	Clark Dining Hall-6051	- $1.00
+Fall $500 Dining Dollars	11/24/24 01:48:35 PM	Tapingo Talley-Los Lobos	- $9.49
+Fall 120 Block	11/22/24 11:35:26 AM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	11/21/24 07:26:57 PM	OneEarth 6154	- $1.00
+Fall 120 Block	11/21/24 12:59:55 PM	Case Micros Reg 6103	- $1.00
+Fall 120 Block	11/20/24 11:38:06 AM	Case Micros Reg 6103	- $1.00

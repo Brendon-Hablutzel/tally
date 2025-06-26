@@ -39,7 +39,11 @@ export const PlacesBarChart = ({
           tick={{ fontSize: 12 }}
         />
         <Tooltip />
-        <Bar dataKey="used" stackId="a" fill="#82ca9d" />
+        <Bar
+          dataKey="used"
+          stackId="a"
+          fill="#ff6467" // tailwind red-400
+        />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -128,7 +132,7 @@ export const UsageOverTimeLineChart = ({
         />
         <Line
           dataKey="actualRemaining"
-          stroke="#82ca9d"
+          stroke="#ff6467" // tailwind red-400
           dot={{ r: 0 }}
           strokeWidth={2}
         />
