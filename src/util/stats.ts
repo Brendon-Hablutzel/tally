@@ -34,8 +34,9 @@ export const getPlaceStats = (
   };
 } => {
   const nonImportRows = rows
-    .filter((row) => row.place !== "PatronImport Location")
-    .filter((row) => !row.place.startsWith("Workstation"))
+    .filter(row => row.place !== "PatronImport Location")
+    .filter(row => !row.place.startsWith("Workstation"))
+    .filter(row => !row.place.startsWith("StarRez"))
     .map((row) => ({
       ...row,
       amount: -1 * row.amount,
@@ -64,24 +65,29 @@ export const getPlaceStats = (
 };
 
 export const getAggregateUsageStats = (
+  plan: PlanType,
   rows: TableType
 ): {
   importedAmount: number;
   nonImportedAmount: number;
 } => {
+  // TODO: what is StarRez 2500?
+  // TODO: better method for partitioning?
   const importRows = rows.filter(
-    (row) => row.place === "PatronImport Location"
+    (row) => row.place === "PatronImport Location" || row.place.startsWith("StarRez")
   );
   const nonImportRows = rows.filter(
-    (row) => row.place !== "PatronImport Location"
+    (row) => row.place !== "PatronImport Location" && !row.place.startsWith("StarRez")
   );
 
+  // TODO: since imports and initial deposit are under the same place, subtract
+  // the initial deposito
   const importedAmount = roundToHundredth(
     importRows.reduce((prev, curr) => prev + curr.amount, 0)
-  );
+  ) - plan.totalAmount;
 
   const nonImportedAmount = roundToHundredth(
-    nonImportRows.reduce((prev, curr) => prev - curr.amount, 0)
+    nonImportRows.reduce((prev, curr) => prev + curr.amount, 0)
   );
 
   return {

@@ -18,8 +18,8 @@ const Report = () => {
 
   const [selectedAccount, setSelectedAccount] = useState<string>("");
 
-  // cut off the '#' at the beginning
   const table = useMemo(
+    // cut off the '#' at the beginning
     () => (!hash ? null : decodeTableString(hash.substring(1))),
     [hash]
   );
@@ -71,10 +71,10 @@ const Report = () => {
 
   const aggregateUsageStats = useMemo(
     () =>
-      selectedAccount in accountTables
-        ? getAggregateUsageStats(accountTables[selectedAccount])
+      selectedAccount in accountTables && plan
+        ? getAggregateUsageStats(plan, accountTables[selectedAccount])
         : undefined,
-    [accountTables, selectedAccount]
+    [accountTables, selectedAccount, plan]
   );
 
   const trendStats = useMemo(
@@ -84,7 +84,7 @@ const Report = () => {
             accountTables[selectedAccount],
             plan,
             plan.totalAmount + aggregateUsageStats.importedAmount,
-            aggregateUsageStats.nonImportedAmount
+            -1 * aggregateUsageStats.nonImportedAmount
           )
         : undefined,
 
@@ -95,7 +95,7 @@ const Report = () => {
     () =>
       plan && aggregateUsageStats
         ? plan.totalAmount +
-          aggregateUsageStats.importedAmount -
+          aggregateUsageStats.importedAmount +
           aggregateUsageStats.nonImportedAmount
         : undefined,
     [plan, aggregateUsageStats]
@@ -108,12 +108,11 @@ const Report = () => {
             accountTables[selectedAccount],
             plan,
             plan.totalAmount + aggregateUsageStats.importedAmount,
-            aggregateUsageStats.nonImportedAmount
+            -1 * aggregateUsageStats.nonImportedAmount
           )
         : undefined,
     [plan, aggregateUsageStats, selectedAccount, accountTables]
   );
-  console.log(forecastStats);
 
   useEffect(() => {
     const firstKey = Object.keys(accountTables)[0];
@@ -216,7 +215,7 @@ const Report = () => {
                   <p>Used</p>
                   <p>
                     {aggregateUsageStats
-                      ? -1 * aggregateUsageStats.nonImportedAmount
+                      ? aggregateUsageStats.nonImportedAmount
                       : undefined}
                   </p>
                 </div>
@@ -271,7 +270,7 @@ const Report = () => {
                   <span className="text-sm">top place</span>
                 </div>
                 <div className="">
-                  <span className="text-sm">used</span>{" "}
+                  <span className="text-sm">top place used</span>{" "}
                   <span className="text-xl">{placeStats?.top.used}</span>
                 </div>
               </div>
@@ -312,7 +311,7 @@ const Report = () => {
                   <p>
                     at this rate, plan will run out in{" "}
                     <span className="font-medium">
-                      {forecastStats?.remainingDaysAtCurrentRate} days
+                      {roundToHundredth(forecastStats.remainingDaysAtCurrentRate)} days
                     </span>
                     , on{" "}
                     <span className="font-medium">
@@ -327,9 +326,9 @@ const Report = () => {
                     </span>
                   </p>
                   <p>
-                    use{" "}
+                    from now on, use{" "}
                     <span className="font-medium">
-                      {forecastStats?.requiredRate} / day
+                      {roundToHundredth(forecastStats.requiredRate)} / day
                     </span>{" "}
                     to instead run out on{" "}
                     <span className="font-medium">
