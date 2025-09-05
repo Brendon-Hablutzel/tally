@@ -81,7 +81,7 @@ const UsageOverTimeTooltip = ({
                 : entry.name,
           }))
           .map((entry, index) => (
-            <li key={index} style={{ color: entry.color }}>
+            <li key={index} style={{ color: entry.color, opacity: entry.opacity }}>
               {entry.name}: {roundToHundredth(entry.value as number)}
             </li>
           ))}
@@ -96,7 +96,7 @@ export const UsageOverTimeLineChart = ({
   data: {
     day: Date;
     idealRemaining: number;
-    actualRemaining: number;
+    actualRemaining?: number;
     projectedRemaining: number;
   }[];
 }) => {
@@ -142,6 +142,7 @@ export const UsageOverTimeLineChart = ({
         <Line
           dataKey="projectedRemaining"
           stroke="#ff6467" // tailwind red-400
+          opacity={0.5}
           dot={{ r: 0 }}
           strokeWidth={2}
           strokeDasharray="5 5"

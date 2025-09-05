@@ -138,9 +138,12 @@ const getUsageOverTime = (
   startDate: Date,
   endDate: Date,
   currentRate: number,
+  now: Date,
 ): {
+  // NOTE: for a given day, actualRemaining represents the amount remaining at the 
+  // end of the day (so it includes the transactions from that day)
   day: Date;
-  actualRemaining: number;
+  actualRemaining?: number;
   idealRemaining: number;
   projectedRemaining: number;
 }[] => {
@@ -155,12 +158,6 @@ const getUsageOverTime = (
   let currentDate = new Date(startDate);
   while (currentDate <= endDate) {
     // clone date to avoid keeping reference to original
-    usageOverTime.push({
-      day: new Date(currentDate),
-      actualRemaining,
-      idealRemaining,
-      projectedRemaining,
-    });
 
     const totalUsedToday = rows
       .filter((row) => isSameDay(new Date(row.when), currentDate))
@@ -169,6 +166,14 @@ const getUsageOverTime = (
     idealRemaining -= idealRate;
     actualRemaining -= totalUsedToday;
     projectedRemaining -= currentRate;
+
+    usageOverTime.push({
+      day: new Date(currentDate),
+      actualRemaining: currentDate <= now ? actualRemaining : undefined,
+      idealRemaining,
+      projectedRemaining,
+    });
+
     currentDate = addDays(currentDate, 1);
   }
 
@@ -179,11 +184,11 @@ export const getTrendStats = (
   rows: TableType,
   plan: PlanType,
   totalStartAmount: number,
-  used: number
+  used: number,
 ): {
   usageOverTime: {
     day: Date;
-    actualRemaining: number;
+    actualRemaining?: number;
     idealRemaining: number;
     projectedRemaining: number;
   }[];
@@ -208,6 +213,7 @@ export const getTrendStats = (
     plan.planStart,
     plan.planEnd,
     currentRate,
+    now,
   );
 
   return {

@@ -35,8 +35,8 @@ export const getPlanFromAccount = (
     planStart = new Date(firstTransactionYear, 0, 5);
     planEnd = new Date(firstTransactionYear, 4, 10);
   } else if (term === "Fall") {
-    planStart = new Date(firstTransactionYear, 7, 10);
-    planEnd = new Date(firstTransactionYear, 11, 15);
+    planStart = new Date(firstTransactionYear, 7, 11);
+    planEnd = new Date(firstTransactionYear, 11, 11);
   } else if (term === "Summer") {
     planStart = new Date(firstTransactionYear, 4, 11);
     planEnd = new Date(firstTransactionYear, 7, 9);

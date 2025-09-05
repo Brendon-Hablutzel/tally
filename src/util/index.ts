@@ -10,7 +10,7 @@ export const daysBetween = (date1: Date, date2: Date) => {
   const utc1 = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
   const utc2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
 
-  return Math.floor((utc2 - utc1) / msPerDay);
+  return Math.floor((utc2 - utc1) / msPerDay) + 1;
 };
 
 export const formatDate = (date: Date) => {
