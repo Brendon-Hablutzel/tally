@@ -130,15 +130,19 @@ export const getForecastStats = (
   };
 };
 
+
+
 const getUsageOverTime = (
   rows: TableType,
   totalStartAmount: number,
   startDate: Date,
-  endDate: Date
+  endDate: Date,
+  currentRate: number,
 ): {
   day: Date;
   actualRemaining?: number;
   idealRemaining: number;
+  projectedRemaining: number;
 }[] => {
   const daysDuration = daysBetween(startDate, endDate);
   const idealRate = totalStartAmount / daysDuration;
@@ -147,6 +151,7 @@ const getUsageOverTime = (
 
   let actualRemaining = totalStartAmount;
   let idealRemaining = totalStartAmount;
+  let projectedRemaining = totalStartAmount;
   let currentDate = new Date(startDate);
   while (currentDate <= endDate) {
     // clone date to avoid keeping reference to original
@@ -154,6 +159,7 @@ const getUsageOverTime = (
       day: new Date(currentDate),
       actualRemaining,
       idealRemaining,
+      projectedRemaining,
     });
 
     const totalUsedToday = rows
@@ -162,6 +168,7 @@ const getUsageOverTime = (
 
     idealRemaining -= idealRate;
     actualRemaining -= totalUsedToday;
+    projectedRemaining -= currentRate;
     currentDate = addDays(currentDate, 1);
   }
 
@@ -178,16 +185,12 @@ export const getTrendStats = (
     day: Date;
     actualRemaining?: number;
     idealRemaining: number;
+    projectedRemaining: number;
   }[];
   currentRate: number;
   idealRate: number;
 } => {
-  const usageOverTime = getUsageOverTime(
-    rows,
-    totalStartAmount,
-    plan.planStart,
-    plan.planEnd
-  );
+  
 
   const now = new Date();
   const daysSinceBegin = Math.min(
@@ -199,9 +202,19 @@ export const getTrendStats = (
   const currentRate = used / daysSinceBegin;
   const idealRate = totalStartAmount / planDurationDays;
 
+  const usageOverTime = getUsageOverTime(
+    rows,
+    totalStartAmount,
+    plan.planStart,
+    plan.planEnd,
+    currentRate,
+  );
+
   return {
     usageOverTime,
     currentRate,
     idealRate,
   };
 };
+
+

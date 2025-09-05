@@ -76,6 +76,8 @@ const UsageOverTimeTooltip = ({
                 ? "ideal remaining"
                 : entry.name === "actualRemaining"
                 ? "actual remaining"
+                : entry.name === "projectedRemaining"
+                ? "projected remaining"
                 : entry.name,
           }))
           .map((entry, index) => (
@@ -94,7 +96,8 @@ export const UsageOverTimeLineChart = ({
   data: {
     day: Date;
     idealRemaining: number;
-    actualRemaining?: number;
+    actualRemaining: number;
+    projectedRemaining: number;
   }[];
 }) => {
   return (
@@ -135,6 +138,13 @@ export const UsageOverTimeLineChart = ({
           stroke="#ff6467" // tailwind red-400
           dot={{ r: 0 }}
           strokeWidth={2}
+        />
+        <Line
+          dataKey="projectedRemaining"
+          stroke="#ff6467" // tailwind red-400
+          dot={{ r: 0 }}
+          strokeWidth={2}
+          strokeDasharray="5 5"
         />
       </LineChart>
     </ResponsiveContainer>
