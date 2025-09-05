@@ -140,7 +140,7 @@ const getUsageOverTime = (
   currentRate: number,
 ): {
   day: Date;
-  actualRemaining?: number;
+  actualRemaining: number;
   idealRemaining: number;
   projectedRemaining: number;
 }[] => {
@@ -183,7 +183,7 @@ export const getTrendStats = (
 ): {
   usageOverTime: {
     day: Date;
-    actualRemaining?: number;
+    actualRemaining: number;
     idealRemaining: number;
     projectedRemaining: number;
   }[];

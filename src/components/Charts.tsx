@@ -96,7 +96,7 @@ export const UsageOverTimeLineChart = ({
   data: {
     day: Date;
     idealRemaining: number;
-    actualRemaining?: number;
+    actualRemaining: number;
     projectedRemaining: number;
   }[];
 }) => {
