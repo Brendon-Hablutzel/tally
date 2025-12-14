@@ -7,13 +7,19 @@ import {
   getPlaceStats,
   getTrendStats,
 } from "../util/stats";
-import { canGetPlanFromAccount, getPlanFromAccount } from "../util/plans";
 import { addDays, daysBetween, formatDate, roundToHundredth } from "../util";
 import { PlacesBarChart, UsageOverTimeLineChart } from "./Charts";
+import { canGetPlanFromAccount } from "../util/plans";
+import { SchoolId } from "../util/schools";
+import { SchoolParser } from "../util/schools/parser";
 
-// TODO: transition animations between accounts
-
-const Report = () => {
+const AbstractReport = ({
+  schoolParser,
+  schoolName,
+}: {
+  schoolParser: SchoolParser;
+  schoolName: SchoolId;
+}) => {
   const { hash } = useLocation();
 
   const [selectedAccount, setSelectedAccount] = useState<string>("");
@@ -24,16 +30,16 @@ const Report = () => {
     [hash]
   );
 
-  const mostRecentDateForSelectedAccount = useMemo(
+  const firstTransactionDateForSelectedAccount = useMemo(
     () =>
       table?.success && selectedAccount
         ? new Date(
             table.data.reduce(
               (prev, curr) =>
-                curr.account === selectedAccount && curr.when > prev
+                curr.account === selectedAccount && curr.when < prev
                   ? curr.when
                   : prev,
-              0
+              Infinity
             )
           )
         : undefined,
@@ -44,14 +50,22 @@ const Report = () => {
     try {
       return selectedAccount &&
         table?.success &&
-        mostRecentDateForSelectedAccount
-        ? getPlanFromAccount(selectedAccount, mostRecentDateForSelectedAccount)
+        firstTransactionDateForSelectedAccount
+        ? schoolParser.getPlanFromAccount(
+            selectedAccount,
+            firstTransactionDateForSelectedAccount
+          )
         : undefined;
     } catch (e) {
       console.error(e);
       return undefined;
     }
-  }, [selectedAccount, table, mostRecentDateForSelectedAccount]);
+  }, [
+    selectedAccount,
+    table,
+    firstTransactionDateForSelectedAccount,
+    schoolParser,
+  ]);
 
   const accountTables = useMemo(
     () =>
@@ -64,39 +78,46 @@ const Report = () => {
   const placeStats = useMemo(
     () =>
       selectedAccount in accountTables
-        ? getPlaceStats(accountTables[selectedAccount])
+        ? getPlaceStats(schoolParser, accountTables[selectedAccount])
         : undefined,
-    [accountTables, selectedAccount]
+    [accountTables, selectedAccount, schoolParser]
   );
 
   const aggregateUsageStats = useMemo(
     () =>
       selectedAccount in accountTables && plan
-        ? getAggregateUsageStats(plan, accountTables[selectedAccount])
+        ? getAggregateUsageStats(
+            schoolParser,
+            plan,
+            accountTables[selectedAccount]
+          )
         : undefined,
-    [accountTables, selectedAccount, plan]
+    [accountTables, selectedAccount, plan, schoolParser]
   );
 
   const trendStats = useMemo(
     () =>
       selectedAccount in accountTables && plan && aggregateUsageStats
         ? getTrendStats(
+            schoolParser,
             accountTables[selectedAccount],
             plan,
             plan.totalAmount + aggregateUsageStats.importedAmount,
-            -1 * aggregateUsageStats.nonImportedAmount
+            -1 * aggregateUsageStats.spentAmount
           )
         : undefined,
 
-    [accountTables, selectedAccount, plan, aggregateUsageStats]
+    [accountTables, selectedAccount, plan, aggregateUsageStats, schoolParser]
   );
 
   const balance = useMemo(
     () =>
       plan && aggregateUsageStats
-        ? plan.totalAmount +
-          aggregateUsageStats.importedAmount +
-          aggregateUsageStats.nonImportedAmount
+        ? roundToHundredth(
+            plan.totalAmount +
+              aggregateUsageStats.importedAmount +
+              aggregateUsageStats.spentAmount
+          )
         : undefined,
     [plan, aggregateUsageStats]
   );
@@ -108,7 +129,7 @@ const Report = () => {
             accountTables[selectedAccount],
             plan,
             plan.totalAmount + aggregateUsageStats.importedAmount,
-            -1 * aggregateUsageStats.nonImportedAmount
+            -1 * aggregateUsageStats.spentAmount
           )
         : undefined,
     [plan, aggregateUsageStats, selectedAccount, accountTables]
@@ -178,12 +199,13 @@ const Report = () => {
             value={selectedAccount}
             onChange={(e) => setSelectedAccount(e.target.value)}
           >
-            {mostRecentDateForSelectedAccount
+            {firstTransactionDateForSelectedAccount
               ? Object.keys(accountTables)
                   .filter((account) =>
                     canGetPlanFromAccount(
+                      schoolParser,
                       account,
-                      mostRecentDateForSelectedAccount
+                      firstTransactionDateForSelectedAccount
                     )
                   )
                   .map((account, idx) => <option key={idx}>{account}</option>)
@@ -196,9 +218,11 @@ const Report = () => {
                 <div className="text-2xl">{selectedAccount}</div>
                 <div className="text-sm">
                   {plan ? formatDate(plan.planStart) : undefined} -{" "}
-                  {plan ? formatDate(plan.planEnd) : undefined} (
+                  {plan ? formatDate(plan.planEnd) : undefined}
+                </div>
+                <div className="text-sm">
                   {plan ? daysBetween(plan.planStart, plan.planEnd) : undefined}{" "}
-                  days)
+                  days
                 </div>
               </div>
               <div className="h-8" />
@@ -215,7 +239,7 @@ const Report = () => {
                   <p>Used</p>
                   <p>
                     {aggregateUsageStats
-                      ? aggregateUsageStats.nonImportedAmount
+                      ? aggregateUsageStats.spentAmount
                       : undefined}
                   </p>
                 </div>
@@ -232,6 +256,7 @@ const Report = () => {
                 <div className="flex flex-col justify-between gap-2 flex-1">
                   <div className="h-[250px] w-full">
                     <UsageOverTimeLineChart
+                      schoolName={schoolName}
                       data={trendStats?.usageOverTime ?? []}
                     />
                   </div>
@@ -276,6 +301,7 @@ const Report = () => {
               </div>
               <div className="h-[300px] w-full mt-3">
                 <PlacesBarChart
+                  schoolName={schoolName}
                   data={Object.entries(placeStats?.byPlace ?? {})
                     .map((entry) => ({
                       place: entry[0],
@@ -311,7 +337,10 @@ const Report = () => {
                   <p>
                     at this rate, plan will run out in{" "}
                     <span className="font-medium">
-                      {roundToHundredth(forecastStats.remainingDaysAtCurrentRate)} days
+                      {roundToHundredth(
+                        forecastStats.remainingDaysAtCurrentRate
+                      )}{" "}
+                      days
                     </span>
                     , on{" "}
                     <span className="font-medium">
@@ -345,4 +374,4 @@ const Report = () => {
   );
 };
 
-export default Report;
+export default AbstractReport;

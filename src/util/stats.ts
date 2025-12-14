@@ -1,14 +1,16 @@
-import { addDays, daysBetween, isSameDay, roundToHundredth } from ".";
+import { addDays, daysBetween, isSameDay, roundToHundredth } from "./";
+import { SchoolParser } from "./schools/parser";
 import { PlanType } from "./plans";
 import { TableType } from "./table";
 
-// NOTE: Workstation XXXX (X numbers) is used to drain remaining balance at end of year
-
-const getPlaceAmounts = (rows: TableType): Record<string, number> => {
+const getPlaceAmounts = (
+  schoolParser: SchoolParser,
+  rows: TableType
+): Record<string, number> => {
   const places: Record<string, number> = {};
 
   for (const row of rows) {
-    const place = row.place;
+    const place = schoolParser.normalizePlaceName(row.place);
 
     if (place in places) {
       places[place] += row.amount;
@@ -25,6 +27,7 @@ const getPlaceAmounts = (rows: TableType): Record<string, number> => {
 };
 
 export const getPlaceStats = (
+  schoolParser: SchoolParser,
   rows: TableType
 ): {
   byPlace: Record<string, number>;
@@ -34,16 +37,13 @@ export const getPlaceStats = (
   };
 } => {
   const nonImportRows = rows
-    .filter(row => row.place !== "PatronImport Location")
-    .filter(row => !row.place.startsWith("Workstation"))
-    .filter(row => !row.place.startsWith("StarRez"))
+    .filter((row) => !schoolParser.isSystemTransaction(row.place))
     .map((row) => ({
       ...row,
       amount: -1 * row.amount,
     }));
 
-  // const byPlace = getPlaceFrequencies(rows);
-  const byPlace = getPlaceAmounts(nonImportRows);
+  const byPlace = getPlaceAmounts(schoolParser, nonImportRows);
 
   const [topName, topUsage] = Object.entries(byPlace).reduce(
     (prev, curr) => {
@@ -65,34 +65,42 @@ export const getPlaceStats = (
 };
 
 export const getAggregateUsageStats = (
+  schoolParser: SchoolParser,
   plan: PlanType,
   rows: TableType
 ): {
   importedAmount: number;
-  nonImportedAmount: number;
+  exportedAmount: number;
+  spentAmount: number;
 } => {
-  // TODO: what is StarRez 2500?
+  // TODO: what is StarRez 2500? (for ncsu)
   // TODO: better method for partitioning?
   const importRows = rows.filter(
-    (row) => row.place === "PatronImport Location" || row.place.startsWith("StarRez")
+    (row) => schoolParser.isSystemTransaction(row.place) && row.amount >= 0
   );
-  const nonImportRows = rows.filter(
-    (row) => row.place !== "PatronImport Location" && !row.place.startsWith("StarRez")
+  const exportRows = rows.filter(
+    (row) => schoolParser.isSystemTransaction(row.place) && row.amount < 0
+  );
+  const spentRows = rows.filter(
+    (row) => !schoolParser.isSystemTransaction(row.place)
   );
 
-  // TODO: since imports and initial deposit are under the same place, subtract
-  // the initial deposito
-  const importedAmount = roundToHundredth(
-    importRows.reduce((prev, curr) => prev + curr.amount, 0)
-  ) - plan.totalAmount;
+  const importedAmount =
+    roundToHundredth(importRows.reduce((prev, curr) => prev + curr.amount, 0)) -
+    (schoolParser.transactionsIncludeInitialDeposit ? plan.totalAmount : 0);
 
-  const nonImportedAmount = roundToHundredth(
-    nonImportRows.reduce((prev, curr) => prev + curr.amount, 0)
+  const exportedAmount = roundToHundredth(
+    exportRows.reduce((prev, curr) => prev + curr.amount, 0)
+  );
+
+  const spentAmount = roundToHundredth(
+    spentRows.reduce((prev, curr) => prev + curr.amount, 0)
   );
 
   return {
     importedAmount,
-    nonImportedAmount,
+    exportedAmount,
+    spentAmount,
   };
 };
 
@@ -130,17 +138,15 @@ export const getForecastStats = (
   };
 };
 
-
-
 const getUsageOverTime = (
   rows: TableType,
   totalStartAmount: number,
   startDate: Date,
   endDate: Date,
   currentRate: number,
-  now: Date,
+  now: Date
 ): {
-  // NOTE: for a given day, actualRemaining represents the amount remaining at the 
+  // NOTE: for a given day, actualRemaining represents the amount remaining at the
   // end of the day (so it includes the transactions from that day)
   day: Date;
   actualRemaining?: number;
@@ -158,7 +164,6 @@ const getUsageOverTime = (
   let currentDate = new Date(startDate);
   while (currentDate <= endDate) {
     // clone date to avoid keeping reference to original
-
     const totalUsedToday = rows
       .filter((row) => isSameDay(new Date(row.when), currentDate))
       .reduce((prev, curr) => prev - curr.amount, 0);
@@ -181,10 +186,11 @@ const getUsageOverTime = (
 };
 
 export const getTrendStats = (
+  schoolParser: SchoolParser,
   rows: TableType,
   plan: PlanType,
   totalStartAmount: number,
-  used: number,
+  used: number
 ): {
   usageOverTime: {
     day: Date;
@@ -195,8 +201,6 @@ export const getTrendStats = (
   currentRate: number;
   idealRate: number;
 } => {
-  
-
   const now = new Date();
   const daysSinceBegin = Math.min(
     daysBetween(plan.planStart, now),
@@ -208,12 +212,12 @@ export const getTrendStats = (
   const idealRate = totalStartAmount / planDurationDays;
 
   const usageOverTime = getUsageOverTime(
-    rows,
+    rows.filter((row) => !schoolParser.isSystemTransaction(row.place)),
     totalStartAmount,
     plan.planStart,
     plan.planEnd,
     currentRate,
-    now,
+    now
   );
 
   return {
@@ -222,5 +226,3 @@ export const getTrendStats = (
     idealRate,
   };
 };
-
-

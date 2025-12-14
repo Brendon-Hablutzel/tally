@@ -14,40 +14,6 @@ export const Table = z.array(TableRow);
 
 export type TableType = z.infer<typeof Table>;
 
-export const parseInputTransactionHistoryTable = (
-  tableContent: string
-): TableRowType[] => {
-  const trimmedTableContent = tableContent.trim();
-
-  // table content may or may not have header
-  const lines = trimmedTableContent
-    .split("\n")
-    .filter((line) => !line.startsWith("Account Name"));
-
-  return lines.map((line) => {
-    const cols = line.split("\t");
-
-    if (cols.length !== 4) {
-      throw new Error("table must have 4 columns");
-    }
-    const [account, whenStr, place, amountStr] = cols;
-
-    const when = new Date(whenStr);
-    const amount =
-      (amountStr.includes("$")
-        ? parseFloat(amountStr.substring(3))
-        : parseFloat(amountStr.substring(2))) *
-      (amountStr.startsWith("-") ? -1 : 1);
-
-    return {
-      account,
-      when: when.getTime(),
-      place,
-      amount,
-    };
-  });
-};
-
 export const encodeParsedTable = (table: TableRowType[]): string => {
   return btoa(JSON.stringify(table));
 };
@@ -67,8 +33,6 @@ export const decodeTableString = (
     const decoded = atob(base64Table);
 
     const parsedJson = JSON.parse(decoded);
-
-    console.log(parsedJson);
 
     const table = Table.safeParse(parsedJson);
 
@@ -102,11 +66,3 @@ export const tableToAccountTables = (
 
   return tables;
 };
-
-// NOTE: table must have at least 1 row
-// export const getTableTimeRange = (rows: TableType): [Date, Date] => {
-//   const earliest = rows[rows.length - 1];
-//   const mostRecent = rows[0];
-
-//   return [new Date(earliest.when), new Date(mostRecent.when)];
-// };

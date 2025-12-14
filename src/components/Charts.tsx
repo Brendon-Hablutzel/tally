@@ -13,8 +13,10 @@ import {
 import { formatDate, formatDateShort, roundToHundredth } from "../util";
 
 export const PlacesBarChart = ({
+  schoolName,
   data,
 }: {
+  schoolName: string;
   data: {
     place: string;
     used: number;
@@ -39,11 +41,7 @@ export const PlacesBarChart = ({
           tick={{ fontSize: 12 }}
         />
         <Tooltip />
-        <Bar
-          dataKey="used"
-          stackId="a"
-          fill="#ff6467" // tailwind red-400
-        />
+        <Bar dataKey="used" stackId="a" fill={`var(--color-${schoolName})`} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -81,7 +79,10 @@ const UsageOverTimeTooltip = ({
                 : entry.name,
           }))
           .map((entry, index) => (
-            <li key={index} style={{ color: entry.color, opacity: entry.opacity }}>
+            <li
+              key={index}
+              style={{ color: entry.color, opacity: entry.opacity }}
+            >
               {entry.name}: {roundToHundredth(entry.value as number)}
             </li>
           ))}
@@ -91,8 +92,10 @@ const UsageOverTimeTooltip = ({
 };
 
 export const UsageOverTimeLineChart = ({
+  schoolName,
   data,
 }: {
+  schoolName: string;
   data: {
     day: Date;
     idealRemaining: number;
@@ -135,13 +138,13 @@ export const UsageOverTimeLineChart = ({
         />
         <Line
           dataKey="actualRemaining"
-          stroke="#ff6467" // tailwind red-400
+          stroke={`var(--color-${schoolName})`}
           dot={{ r: 0 }}
           strokeWidth={2}
         />
         <Line
           dataKey="projectedRemaining"
-          stroke="#ff6467" // tailwind red-400
+          stroke={`var(--color-${schoolName})`}
           opacity={0.5}
           dot={{ r: 0 }}
           strokeWidth={2}
