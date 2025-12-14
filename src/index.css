@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@source inline('{hover:,}bg-{ncsu,duke}');
+
+@theme {
+  --color-ncsu: #cc0000;
+  --color-duke: #00539B;
+}
+
