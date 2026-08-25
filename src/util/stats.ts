@@ -80,11 +80,14 @@ export const getAggregateUsageStats = (
     (row) => row.place !== "PatronImport Location" && !row.place.startsWith("StarRez")
   );
 
-  // TODO: since imports and initial deposit are under the same place, subtract
-  // the initial deposito
-  const importedAmount = roundToHundredth(
+  // If no import transactions exist, assume importedAmount is 0
+  // (meaning the plan started with exactly plan.totalAmount)
+  const importSum = roundToHundredth(
     importRows.reduce((prev, curr) => prev + curr.amount, 0)
-  ) - plan.totalAmount;
+  );
+  const importedAmount = importRows.length > 0
+    ? importSum - plan.totalAmount
+    : 0;
 
   const nonImportedAmount = roundToHundredth(
     nonImportRows.reduce((prev, curr) => prev + curr.amount, 0)
