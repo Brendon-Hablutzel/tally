@@ -4,7 +4,7 @@ Spring $500 Dining Dollars	05/07/25 03:00:10 PM	Workstation 9993	- $15.05
 Spring $500 Dining Dollars	05/02/25 01:29:21 PM	TalleyMrkt 6148	- $17.07
 Spring $500 Dining Dollars	05/02/25 01:20:41 PM	Tapingo PCJ-Talley	- $6.22
 Spring $500 Dining Dollars	05/02/25 01:07:18 PM	Tapingo Talley-Jasons Deli	- $9.49
-Spring $500 Dining D llars	05/01/25 12:38:08 PM	Tapingo PCJ-Talley	- $10.45
+Spring $500 Dining Dollars	05/01/25 12:38:08 PM	Tapingo PCJ-Talley	- $10.45
 Spring $500 Dining Dollars	05/01/25 12:36:57 PM	Tapingo Talley-Jasons Deli	- $8.54
 Spring $500 Dining Dollars	05/01/25 12:36:13 PM	Tapingo Talley-Los Lobos	- $6.64
 Spring $500 Dining Dollars	04/30/25 06:45:31 PM	Tapingo Talley-Los Lobos	- $16.13
